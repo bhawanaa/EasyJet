@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 
 
 
@@ -11,18 +11,13 @@
 
 
     <meta charset="utf-8">
-
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-
-
     <title>Flights</title>
 
 
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 
 
 
@@ -76,16 +71,9 @@
 
 
 <body>
-
-
-
     <table style="font-family:Arial">
 
-
-
         <tr>
-
-
 
             <td colspan="2" class="header">
 
@@ -95,13 +83,15 @@
 
                 </h1>
 
-
-                <ul class="topnav" id="myTopnav">
-                    <li><a href="#/contact">Contact Us</a></li>
-                    <li class="icon">
-                        <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
-                    </li>
-                </ul>
+                <nav>
+                    <ul class="topnav" id="myTopnav">
+                        <li><a href="#/contact">Contact Us</a></li>
+                        <li><a class="active" href="#/home">Home</a></li>                        
+                        <li class="icon">
+                            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+                        </li>
+                    </ul>
+                </nav>
 
 
 
@@ -193,41 +183,22 @@
 
 
     <script>
-
-
-
-
-
         $(document).ready(function () {
-
-
-
             $(document).on('focus', '.datepicker', function () {
-
-
-
-                //$(this).datepicker({ dateFormat: 'yy-mm-dd' });
-
-
-
                 $(this).datepicker({ dateFormat: 'dd/mm/yy' });
-
-
-
-
-
-
-
             });
-
-
-
         });
+    </script>
 
-
-
-
-
+    <script>
+        function myFunction() {
+            var x = document.getElementById("myTopnav");
+            if (x.className === "topnav") {
+                x.className += " responsive";
+            } else {
+                x.className = "topnav";
+            }
+        }
     </script>
 
 
