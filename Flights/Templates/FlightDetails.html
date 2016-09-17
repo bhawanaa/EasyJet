@@ -1,0 +1,49 @@
+﻿<fieldset ng-repeat="flight in flights | filter :searchId ">
+    <legend>Details</legend>
+    <table style="border:1px thin black;column-width:30%">
+        <tr>
+            <td>Flight Number:</td>
+            <td>{{ flight.flightNumber.number }}</td>
+        </tr>
+        <tr>
+            <td>Flight Carrier:</td>
+            <td>{{ flight.flightNumber.carrierCode }}</td>
+        </tr>
+        <tr>
+            <td>Flight ID:</td>
+            <td>{{ flight.id }}</td>
+        </tr>
+        <tr>
+            <td>Arrival Airport:</td>
+            <td>{{ flight.arrivalAirport }}</td>
+        </tr>
+        <tr>
+            <td>Local Arrival Date:</td>
+            <td>{{ flight.localArrivalTime | date : 'dd-MMM-yyyy' }}</td>
+        </tr>
+        <tr>
+            <td>Local Arrival Time:</td>
+            <td>{{ flight.localArrivalTime | date : 'hh:mm:ss' }}</td>
+        </tr>
+        <tr>
+            <td>Departure Airport:</td>
+            <td>{{ flight.departureAirport }}</td>
+        </tr>
+        <tr>
+            <td>Local Departure Date:</td>
+            <td>{{ flight.localDepartureTime | date : 'dd-MMM-yyyy' }}</td>
+        </tr>
+        <tr>
+            <td>Local Departure Time:</td>
+            <td>{{ flight.localDepartureTime | date : 'hh:mm:ss' }}</td>
+        </tr>
+        <tr>
+            <td>Total Price:</td>
+            <td>{{ price | currency :$:2 }}</td>
+        </tr>
+        
+    </table>
+
+</fieldset>
+
+<a href="#flights"> Back to flight search</a>

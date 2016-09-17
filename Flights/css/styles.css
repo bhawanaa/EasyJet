@@ -1,0 +1,257 @@
+﻿/**
+
+* 2col fluid+fixed
+
+*/
+
+html {
+
+        background: #f06;
+
+        background: linear-gradient(45deg, #c0d6e7, #90afde);
+
+        min-height: 100%; 
+
+        font-family : 'Courier New';
+
+        font-size :small;
+
+}
+
+    
+
+ 
+
+ 
+
+.arrow_up {
+
+       width:0;
+
+       height:0;
+
+       border-left:5px solid transparent;
+
+       border-right:5px solid transparent;
+
+       border-bottom:10px solid black;
+
+       display:inline-block;
+
+}
+
+ 
+
+.arrow_down {
+
+       width:0;
+
+       height:0;
+
+       border-left:5px solid transparent;
+
+       border-right:5px solid transparent;
+
+       border-top:10px solid black;
+
+       display:inline-block;
+
+}
+
+ 
+
+.header {
+
+    background-color : #BDBFBD;
+
+    text-align:center;
+
+    width:100%;
+
+    max-width:1000px;
+
+}
+
+ 
+
+.footer {
+
+    background-color : #BDBFBD;
+
+    text-align:center;
+
+}
+
+ 
+
+.leftMenu {
+
+    height:60%;
+
+    background-color:#808080;
+
+    width:15em;
+
+}
+
+ 
+
+.mainContent {
+
+    height:60%;
+
+    background-color:#E6E6E6;
+
+    width:120em;
+
+}
+
+ 
+
+a {
+
+    display:block;
+
+    padding:5px;
+
+    color:black;
+
+}
+
+ 
+
+.selectdata {
+
+    display:inline-block;
+
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+th{
+    cursor:pointer;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    /*background-color: #4CAF50;*/
+    background-color:blueviolet;
+    color: white;
+}
+
+ 
+
+/*#wrapper {
+
+  margin: 0 auto;
+
+  max-width: 700px;
+
+  padding-right: 320px; /* padding should be the total width of all right columns */
+
+/*}
+
+ 
+
+#content {
+
+  float: left;
+
+  width: 100%;
+
+  min-width: 400px;
+
+  padding-right: 20px;
+
+}
+
+ 
+
+.sidebar {
+
+  float: left;
+
+  width: 300px;
+
+  margin-right: -1000px;
+
+  padding-top: 50px; /* extra space padding */
+
+/*}
+
+ 
+
+ 
+
+ 
+
+ 
+
+.header-area {
+
+    height: 50px;
+
+}
+
+ 
+
+ 
+
+.float-right-area  {
+
+                width: 90%;
+
+                float: left;
+
+                }
+
+ 
+
+.float-left-area {
+
+                width: 10%;
+
+                float: left;
+
+                }
+
+ 
+
+.inner-right    {
+
+                padding: 5px 5px 5px 5px;
+
+                margin-right: 10px;
+
+                border: #999999 1px solid;
+
+                min-height: 60px;
+
+                }
+
+ 
+
+.inner-left     {
+
+                font-size: 11px;
+
+                padding: 5px 5px 5px 5px;
+
+                border: #999999 1px solid;
+
+                min-height: 60px;
+
+                }
+
+ 
+
+.clear-floated         { clear: both; height: 1px; font-size: 1px; line-height: 1px; padding: 0; margin: 0; }*/

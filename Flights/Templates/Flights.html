@@ -1,0 +1,115 @@
+﻿<h1>Flight Search</h1>
+
+<form>
+    <fieldset>
+        <legend>Input flight data</legend>
+        <div>
+
+            <p class="selectdata">Departure Date: <input required type="text" class="datepicker" ng-model="selectedDepartureDate" datepicker></p>
+
+            <p class="selectdata">Arrival Date: <input required type="text" class="datepicker" ng-model="selectedArrivalDate" datepicker></p>
+
+        </div>
+
+
+
+        <div>
+
+            <p class="selectdata">
+
+                Select Arrival Airport
+
+                <select required ng-model="selectedArrival" ng-options="flight.arrivalAirport for flight in flights | unique:'arrivalAirport'">
+
+                    <option value="">-- Select Arrival Airport --</option>
+
+                    <!--<option ng-repeat="flight in flights" value="{{flight.arrivalAirportCode}}">{{flight.arrivalAirport}}</option>-->
+
+                </select>
+
+            </p>
+
+
+
+            <p class="selectdata">
+
+                Select Departure Airport
+
+                <select required ng-model="selectedDeparture" ng-options="flight.departureAirport for flight in flights | unique:'departureAirport'">
+
+                    <option value="">-- Select Departure Airport --</option>
+
+                </select>
+
+            </p>
+
+        </div>
+
+
+
+        <p class="selectdata">Adults (16+) :<input required type="number" min="0" max="100" step="1" value="0" name="Adults" ng-model="adultCount" /></p>
+
+
+
+        <p class="selectdata">Children (2-15) :<input required type="number" min="0" max="100" step="1" value="0" name="Children" ng-model="childCount" /></p>
+
+
+
+        <p class="selectdata">Infants (< 2):<input required type="number" min="0" max="100" step="1" value="0" name="Infants" ng-model="infantCount" /></p>
+
+
+
+        <p>
+            Type of Payment:<select required ng-model="paymentType">
+
+                <option value="Normal">Normal</option>
+
+                <option value="Credit">Credit Card</option>
+
+                <option value="Debit">Debit Card</option>
+
+            </select>
+
+        </p>
+
+
+        <p><input type="submit" value="Search Flights" ng-click="multipleSearch()" /></p>
+
+
+
+    </fieldset>
+
+</form>
+
+
+
+<div>
+
+    <h1>
+
+        List of flights
+
+    </h1>
+
+</div>
+
+
+<table border="1px solid black">
+    <thead>
+        <tr>
+            <th ng-click="sortData('FlightOperator')">FlightOperator<div ng-class="getClass('FlightOperator')"></div></th>
+            <th ng-click="sortData('Departure')">Departure<div ng-class="getClass('Departure')"></div></th>
+            <th ng-click="sortData('Arrival')">Arrival<div ng-class="getClass('Arrival')"></div></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="item in output| orderBy : sortColumn : reverse">
+            <td><a href="#flightDetails/{{item.id}}/{{adultCount}}/{{childCount}}/{{infantCount}}/{{paymentType}}" target="_blank"> Easy Jet {{ item.id }} </a></td>
+            <!--<td><a href="" onclick="javascript: window.open('#flightDetails/{{item.id}}/{{adultCount}}/{{childCount}}/{{infantCount}}/{{paymentType}}', 'win', 'directories=no,resizable=0,titlebar=0,toolbar=0,location=no,status=no,menubar=0,scrollbars=no,resizable=no,width=400,height=350')">Test</a></td>-->
+            <!--<td><a href="#" onlick="javascript:window.open('#flightDetails/{{item.id}}/{{adultCount}}/{{childCount}}/{{infantCount}}/{{paymentType}}','_blank', 'directories=no,resizable=0,titlebar=0,toolbar=0,location=no,status=no,menubar=0,scrollbars=no,resizable=no,width=400,height=350' )"> Eassy Jet {{ item.id }} </a></td>-->
+            <td>{{ item.localArrivalTime | date: 'dd-MMM-yyyy hh:mm:ss'}} {{ item.arrivalAirport}}</td>
+            <td>{{ item.localDepartureTime | date: 'dd-MMM-yyyy hh:mm:ss'}} {{ item.departureAirport}}</td>
+        </tr>
+    </tbody>
+</table>
+

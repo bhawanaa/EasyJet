@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+
+
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" ng-app="demo">
+
+
+
+<head>
+
+
+
+    <meta charset="utf-8">
+
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+    <title>Flights</title>
+
+
+
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+
+
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+
+    <!--<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap-theme.min.css" />-->
+    <!--<link rel="stylesheet" href="bootstrap-3.3.6-dist/css/bootstrap.min.css" -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>-->
+    <!--<script src="scripts/jquery-2.1.1.min.js"></script>-->
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+
+
+
+    <script src="scripts/angular-route.min.js"></script>
+
+
+
+    <script src="scripts/app.js"></script>
+
+
+
+    <link rel="stylesheet" href="css/styles.css" />
+
+
+
+
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <table style="font-family:Arial">
+
+
+
+        <tr>
+
+
+
+            <td colspan="2" class="header">
+
+
+
+                <h1>
+
+                    Easy Jet Flight Search System
+
+                </h1>
+
+
+
+            </td>
+
+
+
+        </tr>
+
+
+
+        <tr>
+
+
+
+            <td class="leftMenu">
+
+
+
+                <a href="#/home">Home</a>
+
+
+
+                <a href="#/flights">Flight search</a>
+
+
+
+            </td>
+
+
+
+            <td class="mainContent">
+
+
+
+                <br />
+
+                <div ng-view></div>
+
+
+
+            </td>
+
+
+
+        </tr>
+
+
+
+        <tr>
+
+
+
+            <td colspan="2" class="footer">
+
+
+
+                <b>
+
+                    &copy;2016
+
+                </b>
+
+
+
+            </td>
+
+
+
+        </tr>
+
+
+
+    </table>
+
+
+
+
+
+    <script>
+
+
+
+
+
+        $(document).ready(function () {
+
+
+
+            $(document).on('focus', '.datepicker', function () {
+
+
+
+                //$(this).datepicker({ dateFormat: 'yy-mm-dd' });
+
+
+
+                $(this).datepicker({ dateFormat: 'dd/mm/yy' });
+
+
+
+
+
+
+
+            });
+
+
+
+        });
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>
