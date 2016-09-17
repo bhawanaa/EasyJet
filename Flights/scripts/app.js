@@ -49,7 +49,7 @@ demo.factory('flightSvc', function ($http) {
 
         async: function () {
 
-            var promise = $http.get('http://ejtestbed.herokuapp.com/flights').then(function (response) {
+            var promise = $http.get('//ejtestbed.herokuapp.com/flights').then(function (response) {
 
                 return response.data;
 
