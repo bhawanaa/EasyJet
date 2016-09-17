@@ -62,6 +62,7 @@
     <Content Include="scripts\angular-route.min.js" />
     <Content Include="Templates\FlightDetails.html" />
     <Content Include="Templates\Flights.html" />
+    <Content Include="Templates\Contact.html" />
     <Content Include="Templates\Home.html" />
     <Content Include="Web.config" />
   </ItemGroup>

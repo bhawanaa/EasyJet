@@ -2,12 +2,12 @@
 
 <form>
     <fieldset>
-        <legend>Input flight data</legend>
+        <legend><b>Input flight data</b></legend>
         <div>
 
-            <p class="selectdata">Departure Date: <input required type="text" class="datepicker" ng-model="selectedDepartureDate" datepicker></p>
+            <p class="selectdata">Departure Date: <input required placeholder="DD/MM/YYYY" type="text" class="datepicker" ng-model="selectedDepartureDate" datepicker></p>
 
-            <p class="selectdata">Arrival Date: <input required type="text" class="datepicker" ng-model="selectedArrivalDate" datepicker></p>
+            <p class="selectdata">Arrival Date: <input required placeholder="DD/MM/YYYY" type="text" class="datepicker" ng-model="selectedArrivalDate" datepicker></p>
 
         </div>
 
@@ -22,8 +22,6 @@
                 <select required ng-model="selectedArrival" ng-options="flight.arrivalAirport for flight in flights | unique:'arrivalAirport'">
 
                     <option value="">-- Select Arrival Airport --</option>
-
-                    <!--<option ng-repeat="flight in flights" value="{{flight.arrivalAirportCode}}">{{flight.arrivalAirport}}</option>-->
 
                 </select>
 
@@ -47,20 +45,21 @@
 
 
 
-        <p class="selectdata">Adults (16+) :<input required type="number" min="0" max="100" step="1" value="0" name="Adults" ng-model="adultCount" /></p>
+        <p class="selectdata">Adults (16+) :<input required type="number" min="1" max="100" step="1" name="Adults" ng-model="adultCount" ng-init="adultCount=1" /></p>
 
 
 
-        <p class="selectdata">Children (2-15) :<input required type="number" min="0" max="100" step="1" value="0" name="Children" ng-model="childCount" /></p>
+        <p class="selectdata">Children (2-15) :<input required type="number" min="0" max="100" step="1" name="Children" ng-model="childCount" ng-init="childCount=0" /></p>
 
 
 
-        <p class="selectdata">Infants (< 2):<input required type="number" min="0" max="100" step="1" value="0" name="Infants" ng-model="infantCount" /></p>
+        <p class="selectdata">Infants (< 2):<input required type="number" min="0" max="100" step="1" name="Infants" ng-model="infantCount" ng-init="infantCount=0" /></p>
 
 
 
         <p>
             Type of Payment:<select required ng-model="paymentType">
+                <option value="">-- Select Payment Type --</option>
 
                 <option value="Normal">Normal</option>
 
@@ -104,12 +103,11 @@
     </thead>
     <tbody>
         <tr ng-repeat="item in output| orderBy : sortColumn : reverse">
-            <td><a href="#flightDetails/{{item.id}}/{{adultCount}}/{{childCount}}/{{infantCount}}/{{paymentType}}" target="_blank"> Easy Jet {{ item.id }} </a></td>
-            <!--<td><a href="" onclick="javascript: window.open('#flightDetails/{{item.id}}/{{adultCount}}/{{childCount}}/{{infantCount}}/{{paymentType}}', 'win', 'directories=no,resizable=0,titlebar=0,toolbar=0,location=no,status=no,menubar=0,scrollbars=no,resizable=no,width=400,height=350')">Test</a></td>-->
+            <td><a href="#flightDetails/{{item.id}}/{{adultCount}}/{{childCount}}/{{infantCount}}/{{paymentType}}"> Easy Jet {{ item.id }} </a></td>
+            <!--<td><a href="" onclick="javascript: window.open('#flightDetails/{{item.id}}/{{adultCount}}/{{childCount}}/{{infantCount}}/{{paymentType}}', 'win', 'directories=no,resizable=0,titlebar=0,toolbar=0,location=no,status=no,menubar=0,scrollbars=no,resizable=no,width=600,height=350')"> Easy Jet {{ item.id }} </a></td>-->
             <!--<td><a href="#" onlick="javascript:window.open('#flightDetails/{{item.id}}/{{adultCount}}/{{childCount}}/{{infantCount}}/{{paymentType}}','_blank', 'directories=no,resizable=0,titlebar=0,toolbar=0,location=no,status=no,menubar=0,scrollbars=no,resizable=no,width=400,height=350' )"> Eassy Jet {{ item.id }} </a></td>-->
             <td>{{ item.localArrivalTime | date: 'dd-MMM-yyyy hh:mm:ss'}} {{ item.arrivalAirport}}</td>
             <td>{{ item.localDepartureTime | date: 'dd-MMM-yyyy hh:mm:ss'}} {{ item.departureAirport}}</td>
         </tr>
     </tbody>
 </table>
-

@@ -1,10 +1,4 @@
-﻿/**
-
-* 2col fluid+fixed
-
-*/
-
-html {
+﻿html {
 
         background: #f06;
 
@@ -114,8 +108,13 @@ a {
 
     padding:5px;
 
-    color:black;
+    color:maroon;
 
+
+}
+
+h1 {
+    text-decoration:solid;
 }
 
  
@@ -144,114 +143,66 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 th {
     /*background-color: #4CAF50;*/
-    background-color:blueviolet;
+    background-color:maroon;
     color: white;
 }
 
- 
-
-/*#wrapper {
-
-  margin: 0 auto;
-
-  max-width: 700px;
-
-  padding-right: 320px; /* padding should be the total width of all right columns */
-
-/*}
-
- 
-
-#content {
-
-  float: left;
-
-  width: 100%;
-
-  min-width: 400px;
-
-  padding-right: 20px;
-
+body {margin:0;}
+ul.topnav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: maroon;
 }
 
- 
+ul.topnav li {float: right;}
 
-.sidebar {
-
-  float: left;
-
-  width: 300px;
-
-  margin-right: -1000px;
-
-  padding-top: 50px; /* extra space padding */
-
-/*}
-
- 
-
- 
-
- 
-
- 
-
-.header-area {
-
-    height: 50px;
-
+ul.topnav li a {
+  display: inline-block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 17px;
 }
 
- 
+ul.topnav li a:hover {background-color: #555;}
 
- 
+ul.topnav li.icon {display: none;}
 
-.float-right-area  {
+@media screen and (max-width:680px) {
+  ul.topnav li:not(:first-child) {display: none;}
+  ul.topnav li.icon {
+    float: right;
+    display: inline-block;
+  }
+}
 
-                width: 90%;
+@media screen and (max-width:680px) {
+  ul.topnav.responsive {position: relative;}
+  ul.topnav.responsive li.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  ul.topnav.responsive li {
+    float: none;
+    display: inline;
+  }
+  ul.topnav.responsive li a {
+    display: block;
+    text-align: left;
+  }
 
-                float: left;
+ }
 
-                }
 
- 
+.footer-social { float: right; margin-top:5px; height:30px; }
+.footer-social ul {float:left; padding:0; margin:0;}
+.footer-social li {float:left; list-style:none; margin-left:5px;}
+.footer-social span { float:left; }
 
-.float-left-area {
 
-                width: 10%;
 
-                float: left;
-
-                }
-
- 
-
-.inner-right    {
-
-                padding: 5px 5px 5px 5px;
-
-                margin-right: 10px;
-
-                border: #999999 1px solid;
-
-                min-height: 60px;
-
-                }
-
- 
-
-.inner-left     {
-
-                font-size: 11px;
-
-                padding: 5px 5px 5px 5px;
-
-                border: #999999 1px solid;
-
-                min-height: 60px;
-
-                }
-
- 
-
-.clear-floated         { clear: both; height: 1px; font-size: 1px; line-height: 1px; padding: 0; margin: 0; }*/

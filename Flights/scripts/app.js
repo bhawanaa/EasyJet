@@ -11,6 +11,13 @@ demo.config(['$routeProvider', function ($routeProvider) {
         controller: 'HomeController'
 
     }).
+    when('/contact', {
+
+        templateUrl: 'Templates/Contact.html',
+
+        controller: 'ContactController'
+
+    }).
 
     when('/flights', {
 
@@ -43,8 +50,6 @@ demo.factory('flightSvc', function ($http) {
         async: function () {
 
             var promise = $http.get('http://ejtestbed.herokuapp.com/flights').then(function (response) {
-
-                console.log(response.data);
 
                 return response.data;
 
@@ -84,6 +89,9 @@ demo.controller('HomeController', function ($scope) {
 
 });
 
+demo.controller('ContactController', function ($scope) {
+
+});
 demo.controller('FlightDetailsController', function ($scope, flightSvc, $routeParams) {
 
     flightSvc.async().then(function (flights) {
@@ -104,13 +112,10 @@ demo.controller('FlightDetailsController', function ($scope, flightSvc, $routePa
         $scope.price;
 
         $scope.totalPrice = function () {
-            console.log("inside function");
             var index;
             for (i = 0; i < $scope.flights.length; i++) {
                 index = $scope.flights[i].id.indexOf($scope.searchId);
                 if (index != -1) {
-                    console.log(($scope.adultCount * $scope.flights[i].prices.adult.value));
-                    console.log(($scope.childCount * $scope.flights[i].prices.child.value));
                     if ($scope.paymentType == "Normal")
                         $scope.price = ($scope.adultCount * $scope.flights[i].prices.adult.value) + ($scope.childCount * $scope.flights[i].prices.child.value) + (($scope.flights[i].prices.infant == undefined) ? 0 :($scope.infantCount * $scope.flights[i].prices.infant.value))
                     else if ($scope.paymentType == "Debit")
@@ -121,22 +126,6 @@ demo.controller('FlightDetailsController', function ($scope, flightSvc, $routePa
                     break;
                 }
             }
-            console.log("index=" + index);
-            console.log("outside for");
-            
-            /*index = -1;
-            if (index != -1) {
-                if ($scope.paymentType == "Normal")
-                    $scope.price = ($scope.adultCount * $scope.flights[index].prices.adult.value) + ($scope.childCount * $scope.flights[index].prices.child.value) + ($scope.infantCount * $scope.flights[index].prices.infant.value)
-                else if ($scope.paymentType == "Debit")
-                    $scope.price = ($scope.adultCount * $scope.flights[index].prices.adult.valueWithDebitCard) + ($scope.childCount * $scope.flights[index].prices.child.valueWithDebitCard) + ($scope.infantCount * $scope.flights[index].prices.infant.valueWithDebitCard)
-                else if ($scope.paymentType == "Credit")
-                    $scope.price = ($scope.adultCount * $scope.flights[index].prices.adult.valueWithCreditCard) + ($scope.childCount * $scope.flights[index].prices.child.valueWithCreditCard) + ($scope.infantCount * $scope.flights[index].prices.infant.valueWithCreditCard)
-
-            }*/
-
-            console.log("price="+$scope.price)
-
 
         }();
 
@@ -154,9 +143,7 @@ demo.controller('FlightsController', function ($scope, flightSvc) {
 
         $scope.flights = flights;
 
-        console.log($scope.flights);
-
-    });
+     });
 
     $scope.sortColumn;
 
@@ -202,29 +189,9 @@ demo.controller('FlightsController', function ($scope, flightSvc) {
 
         $scope.output = [];
 
-        console.log("inside button click");
-
-
-
-        console.log($scope.selectedDepartureDate);
-
-        console.log($scope.selectedArrivalDate);
-
-        console.log($scope.selectedDeparture.departureAirport);
-
-        console.log($scope.selectedArrival.arrivalAirport);
-
-
-
-        console.log($scope.flights.length);
-
-
-
         for (i = 0; i < $scope.flights.length; i++) {
 
             var dateString = $scope.flights[i].localDepartureTime;
-
-            console.log(dateString);
 
             var dt = dateString.split(/\-|\s/);
 
@@ -256,249 +223,7 @@ demo.controller('FlightsController', function ($scope, flightSvc) {
 
             }
 
-
-
         }
-
-        console.log($scope.output);
-
-        //return $scope.output;
-
-
-
-
-
-        /* if ($scope.selectedDepartureDate != undefined) {
- 
-             var dateString = $scope.flights[0].localDepartureTime;
- 
-             console.log(dateString);
- 
-             var dt = dateString.split(/\-|\s/);
- 
-             var newDepDt = dt[2].substring(0, 2) + '/' + dt[1] + '/' + dt[0];
- 
-         }
- 
-  
- 
-         if ($scope.selectedArrivalDate != undefined) {
- 
-             var dateString = $scope.flights.localArrivalTime;
- 
-             var dt = dateString.split(/\-|\s/);
- 
-             var newArvDt = dt[2].substring(0, 2) + '/' + dt[1] + '/' + dt[0];
- 
-         }
- 
-  
- 
-         if (($scope.selectedDeparture != undefined) && ($scope.selectedArrival != undefined) && ($scope.selectedDepartureDate != undefined) && ($scope.selectedArrivalDate != undefined)) {
- 
-             if (
- 
-                 ($scope.flights.arrivalAirport.toLowerCase().indexOf($scope.selectedArrival.arrivalAirport.toLowerCase()) != -1) &&
- 
-                 ($scope.flights.departureAirport.toLowerCase().indexOf($scope.selectedDeparture.departureAirport.toLowerCase()) != -1) &&
- 
-                 (newArvDt.indexOf($scope.selectedArrivalDate) != -1) &&
- 
-                 (newDepDt.indexOf($scope.selectedDepartureDate) != -1)
- 
-                 ) {
- 
-                 return true;
- 
-             }*/
-
-        /* $scope.multipleSearch = function (item) {
-
- //console.log("item" + item.departureAirport);
-
-
-
-
-
-
-
- /*console.log(newDt);
-
- console.log("selectd="+$scope.selectedDepartureDate);
-
- console.log("result=" + newDt.indexOf($scope.selectedDepartureDate) == -1)*/
-
-
-
-        /* if ($scope.selectedArrival == undefined) {
-
-             $scope.selectedArrival = 'tets'
-
-             $scope.selectedArrival.arrivalAirport = 'test';
-
-         }
-
-         if ($scope.selectedDeparture == undefined) {
-
-             $scope.selectedDeparture='test'
-
-             $scope.selectedDeparture.departureAirport = 'test';
-
-         }
-
-         if ($scope.selectedArrivalDate == undefined)
-
-             $scope.selectedArrivalDate = '';
-
-         if ($scope.selectedDepartureDate == undefined)
-
-             $scope.selectedDepartureDate = '';*/
-
-
-
-
-
-        /*if ($scope.selectedArrival == undefined && $scope.selectedDeparture == undefined && $scope.selectedDepartureDate == undefined && $scope.selectedArrivalDate == undefined) {
-
-            console.log("inside first if");
-
-            return true;
-
-            //return false;
-
-        }
-
-        
-
-
-
-        else {
-
-
-
-
-
-            if ($scope.selectedDepartureDate != undefined) {
-
-                var dateString = item.localDepartureTime;
-
-                var dt = dateString.split(/\-|\s/);
-
-                var newDepDt = dt[2].substring(0, 2) + '/' + dt[1] + '/' + dt[0];
-
-            }
-
-
-
-            if ($scope.selectedArrivalDate != undefined) {
-
-                var dateString = item.localArrivalTime;
-
-                var dt = dateString.split(/\-|\s/);
-
-                var newArvDt = dt[2].substring(0, 2) + '/' + dt[1] + '/' + dt[0];
-
-            }
-
-
-
-            if (($scope.selectedArrival != undefined) && ($scope.selectedDeparture == undefined) && ($scope.selectedDepartureDate == undefined) && ($scope.selectedArrivalDate == undefined)) {
-
-                if ((item.arrivalAirport.toLowerCase().indexOf($scope.selectedArrival.arrivalAirport.toLowerCase()) != -1)) {
-
-                    return true;
-
-                }
-
-            }
-
-
-
-            else if (($scope.selectedDeparture != undefined) && ($scope.selectedArrival == undefined) && ($scope.selectedDepartureDate == undefined) && ($scope.selectedArrivalDate == undefined)) {
-
-                if ((item.departureAirport.toLowerCase().indexOf($scope.selectedDeparture.departureAirport.toLowerCase()) != -1)) {
-
-                    return true;
-
-                }
-
-            }
-
-
-
-            else if (($scope.selectedDeparture == undefined) && ($scope.selectedArrival == undefined) && ($scope.selectedDepartureDate != undefined) && ($scope.selectedArrivalDate == undefined)) {
-
-                if ((newDepDt.indexOf($scope.selectedDepartureDate) != -1)) {
-
-                    return true;
-
-                }
-
-            }
-
-
-
-            else if (($scope.selectedDeparture == undefined) && ($scope.selectedArrival == undefined) && ($scope.selectedDepartureDate == undefined) && ($scope.selectedArrivalDate != undefined)) {
-
-                if ((newArvDt.indexOf($scope.selectedArrivalDate) != -1)) {
-
-                    return true;
-
-                }
-
-            }
-
-
-
-            else if (($scope.selectedDeparture != undefined) && ($scope.selectedArrival != undefined) && ($scope.selectedDepartureDate != undefined) && ($scope.selectedArrivalDate != undefined)) {
-
-                if (
-
-                    (item.arrivalAirport.toLowerCase().indexOf($scope.selectedArrival.arrivalAirport.toLowerCase()) != -1) &&
-
-                    (item.departureAirport.toLowerCase().indexOf($scope.selectedDeparture.departureAirport.toLowerCase()) != -1) &&
-
-                    (newArvDt.indexOf($scope.selectedArrivalDate) != -1) &&
-
-                    (newDepDt.indexOf($scope.selectedDepartureDate) != -1)
-
-                    ) {
-
-                    return true;
-
-                }
-
-            }
-
-            
-
-            }
-
-
-
-        /*else {
-
-            if (item.departureAirport.toLowerCase().indexOf($scope.selectedDeparture.departureAirport.toLowerCase()) != -1 ||
-
-            item.arrivalAirport.toLowerCase().indexOf($scope.selectedArrival.arrivalAirport.toLowerCase()) != -1) {
-
-                //console.log("inside else");
-
-                return true;
-
-            }
-
-        }*/
-
-
-
-        //console.log("outise else")
-
-        /*return false;
-
-    }*/
-
-        //}
 
     }
 
@@ -524,8 +249,6 @@ demo.controller('FlightsController', function ($scope, flightSvc) {
 
         });
 
-        //console.log(output);
-
         return output;
 
     };
@@ -542,15 +265,11 @@ demo.controller('FlightsController', function ($scope, flightSvc) {
 
         angular.forEach(arr, function (item) {
 
-            //console.log("item:"+item.localDepartureTime);
-
             var dateString = item.localDepartureTime;
 
             var dt = dateString.split(/\-|\s/);
 
             var newDt = dt[2].substring(0, 2) + '/' + dt[1] + '/' + dt[0];
-
-            //console.log(newDt);
 
             if ((newDt).indexOf(field) > -1)
 
@@ -558,8 +277,7 @@ demo.controller('FlightsController', function ($scope, flightSvc) {
 
         });
 
-        //console.log(filtered);
-
+        
         return filtered;
 
     }
